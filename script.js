@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	m = moment().format('dddd, MMMM Do YYYY');
+	m = moment().format('dddd, MMMM Do, YYYY');
 
 	let currentDayDiv = $('#currentDay');
 
