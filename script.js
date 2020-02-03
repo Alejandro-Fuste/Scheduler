@@ -42,4 +42,8 @@ $(document).ready(function() {
 	}
 
 	renderRows();
+
+	$(document).on('click', '.saveBtn', function() {
+		console.log('click');
+	});
 });
