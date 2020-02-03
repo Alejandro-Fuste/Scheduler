@@ -10,12 +10,12 @@ $(document).ready(function() {
 	let hours = [ '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm' ];
 	let dataHours = [ 9, 10, 11, 12, 1, 2, 3, 4, 5 ];
 	let container = $('.container');
-	let timeBlock = $('<div>');
-	timeBlock.addClass('time-block');
-	console.log(timeBlock);
+	let timeBlock = $('.time-block');
+	// timeBlock.addClass('time-block');
+	// console.log(timeBlock);
 
 	function renderRows() {
-		timeBlock.empty();
+		container.empty();
 
 		for (i = 0; i < hours.length; i++) {
 			let rowDiv = $('<div>');
@@ -34,6 +34,9 @@ $(document).ready(function() {
 			let button = $('<button>');
 			button.addClass('saveBtn');
 			button.attr('type', 'submit');
+			let lockImg = $('<i>');
+			lockImg.addClass('"fas fa-lock"');
+			button.append(lockImg);
 
 			rowDiv.append(span, textarea, button);
 			// timeBlock.append(rowDiv);
@@ -44,6 +47,7 @@ $(document).ready(function() {
 	renderRows();
 
 	$(document).on('click', '.saveBtn', function() {
-		console.log('click');
+		// let text = .val();
+		console.log(text);
 	});
 });
