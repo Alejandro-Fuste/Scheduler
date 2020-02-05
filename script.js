@@ -79,21 +79,17 @@ $(document).ready(function() {
 		//    get id of textarea
 
 		var rowId = $(this).siblings('textarea').attr('id');
-		console.log(rowId);
 
 		//  get value of textarea
 
 		var activityInput = $(this).siblings('textarea').val().trim();
-		console.log(activityInput);
 
-		// get data-number attritube
+		// get data-number attribute
 		var number = $(this).siblings('textarea').attr('data-number');
-		console.log(number);
-
-		//  Add Global List to hold rowID and activityInput:
 
 		//  and use data attritube to add to list:
 
-		//  var activities[number] = {selector: rowID, Value: activityInput};
+		activities[number] = { selector: rowId, Value: activityInput };
+		console.log(activities);
 	});
 });
