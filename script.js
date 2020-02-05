@@ -8,7 +8,7 @@ $(document).ready(function() {
 	console.log(moment());
 
 	let hours = [ '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm' ];
-	let dataHours = [ 9, 10, 11, 12, 1, 2, 3, 4, 5 ];
+	let dataHours = [ 9, 10, 11, 12, 13, 14, 15, 16, 17 ];
 	let container = $('.container');
 	let timeBlock = $('.time-block');
 	var activities = [];
@@ -31,7 +31,6 @@ $(document).ready(function() {
 			let textarea = $('<textarea>');
 			textarea.addClass('time-block');
 			let idName = 'textarea-' + i;
-			console.log(idName);
 			textarea.attr('id', idName);
 			textarea.attr('data-number', i);
 			textarea.attr('cols', '100');
@@ -58,17 +57,19 @@ $(document).ready(function() {
 		// Need i to be in military time
 
 		// condition for present
-		if (parseInt(moment().format('HH')) > dataHours[i]) {
+		console.log(parseInt(moment().hour()));
+
+		if (parseInt(moment().hour()) < dataHours[i]) {
 			// change class of textarea
-			$('textarea').attr('class', 'future');
+			$('#textarea-' + i).attr('class', 'future');
 
 			// condition for past
-		} else if (parseInt(moment().format('HH')) < dataHours[i]) {
-			$('textarea').attr('class', 'past');
+		} else if (parseInt(moment().hour()) > dataHours[i]) {
+			$('#textarea-' + i).attr('class', 'past');
 
 			// future
 		} else {
-			$('textarea').attr('class', 'present');
+			$('#textarea-' + i).attr('class', 'present');
 		}
 	}
 
