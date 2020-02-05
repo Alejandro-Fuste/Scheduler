@@ -11,8 +11,9 @@ $(document).ready(function() {
 	let dataHours = [ 9, 10, 11, 12, 1, 2, 3, 4, 5 ];
 	let container = $('.container');
 	let timeBlock = $('.time-block');
+	var activities = [];
 	// timeBlock.addClass('time-block');
-	// console.log(timeBlock);
+	console.log(parseInt(moment().format('HH')));
 
 	function renderRows() {
 		container.empty();
@@ -21,33 +22,78 @@ $(document).ready(function() {
 			let rowDiv = $('<div>');
 			rowDiv.addClass('row');
 
-			let span = $('<span>');
-			span.addClass('hour');
+			let divEl = $('<p>');
+			divEl.addClass('hour');
 
-			span.attr('data-hour', dataHours[i]);
-			span.text(hours[i]);
+			divEl.attr('data-hour', dataHours[i]);
+			divEl.text(hours[i]);
 
 			let textarea = $('<textarea>');
 			textarea.addClass('time-block');
+			let idName = 'textarea-' + i;
+			console.log(idName);
+			textarea.attr('id', idName);
+			textarea.attr('data-number', i);
 			textarea.attr('cols', '100');
 
 			let button = $('<button>');
 			button.addClass('saveBtn');
 			button.attr('type', 'submit');
 			let lockImg = $('<i>');
-			lockImg.addClass('"fas fa-lock"');
+			lockImg.addClass('fas fa-save');
 			button.append(lockImg);
 
-			rowDiv.append(span, textarea, button);
+			rowDiv.append(divEl, textarea, button);
 			// timeBlock.append(rowDiv);
 			container.append(rowDiv);
+
+			conditionColors(i);
 		}
 	}
 
 	renderRows();
 
-	$(document).on('click', '.saveBtn', function() {
-		// let text = .val();
-		console.log(text);
+	function conditionColors(i) {
+		// Changes the colors of rows based on the current time.
+		// Need i to be in military time
+
+		// condition for present
+		if (parseInt(moment().format('HH')) > dataHours[i]) {
+			// change class of textarea
+			$('textarea').attr('class', 'future');
+
+			// condition for past
+		} else if (parseInt(moment().format('HH')) < dataHours[i]) {
+			$('textarea').attr('class', 'past');
+
+			// future
+		} else {
+			$('textarea').attr('class', 'present');
+		}
+	}
+
+	$('.saveBtn').on('click', function() {
+		/* With onclick, get value from textarea and add it to the object. Then add
+		   object to list holding all textarea values */
+
+		//    get id of textarea
+
+		var rowId = $(this).siblings('textarea').attr('id');
+		console.log(rowId);
+
+		//  get value of textarea
+
+		var activityInput = $(this).siblings('textarea').val().trim();
+		console.log(activityInput);
+
+		// get data-number attritube
+		var number = $(this).siblings('textarea').attr('data-number');
+		console.log(number);
+
+		//  Add Global List to hold rowID and activityInput:
+
+		//  and use data attritube to add to list:
+
+		//  var activities[number] = {selector: rowID, Value: activityInput};
 	});
 });
