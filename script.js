@@ -56,7 +56,7 @@ $(document).ready(function() {
 		// Changes the colors of rows based on the current time.
 		// Need i to be in military time
 
-		// condition for present
+		// condition for future
 		console.log(parseInt(moment().hour()));
 
 		if (parseInt(moment().hour()) < dataHours[i]) {
@@ -67,7 +67,7 @@ $(document).ready(function() {
 		} else if (parseInt(moment().hour()) > dataHours[i]) {
 			$('#textarea-' + i).attr('class', 'past');
 
-			// future
+			// present
 		} else {
 			$('#textarea-' + i).attr('class', 'present');
 		}
@@ -91,6 +91,25 @@ $(document).ready(function() {
 		//  and use data attritube to add to list:
 
 		activities[number] = { selector: rowId, Value: activityInput };
-		console.log(activities);
+
+		localStorage.setItem('activities', JSON.stringify(activities));
+
+		let parseAct = JSON.parse(localStorage.getItem('activities'));
+
+		retrieveLocal(number);
 	});
+
+	function retrieveLocal(number) {
+		// get value property from activities list in local storage
+
+		var actList = JSON.parse(localStorage.getItem('activities'));
+
+		var valInput = actList[number].Value;
+
+		// put the value into the textarea where the onclick came from
+
+		$('#textarea-' + number).text(valInput);
+
+		console.log({ actList, valInput, number });
+	}
 });
