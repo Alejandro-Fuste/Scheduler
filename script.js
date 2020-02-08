@@ -34,7 +34,6 @@ $(document).ready(function() {
 			textarea.attr('id', idName);
 			textarea.attr('data-number', i);
 			textarea.attr('cols', '100');
-
 			let button = $('<button>');
 			button.addClass('saveBtn');
 			button.attr('type', 'submit');
@@ -43,7 +42,7 @@ $(document).ready(function() {
 			button.append(lockImg);
 
 			rowDiv.append(divEl, textarea, button);
-			// timeBlock.append(rowDiv);
+
 			container.append(rowDiv);
 
 			conditionColors(i);
@@ -73,43 +72,52 @@ $(document).ready(function() {
 		}
 	}
 
-	$('.saveBtn').on('click', function() {
+	$('.saveBtn').on('click', function(event) {
+		event.preventDefault();
 		/* With onclick, get value from textarea and add it to the object. Then add
 		   object to list holding all textarea values */
 
 		//    get id of textarea
 
 		var rowId = $(this).siblings('textarea').attr('id');
+		console.log(rowId);
 
 		//  get value of textarea
 
 		var activityInput = $(this).siblings('textarea').val().trim();
+		console.log(activityInput);
 
 		// get data-number attribute
 		var number = $(this).siblings('textarea').attr('data-number');
 
 		//  and use data attritube to add to list:
 
-		activities[number] = { selector: rowId, Value: activityInput };
+		// activities[number] = { selector: rowId, Value: activityInput };
 
-		localStorage.setItem('activities', JSON.stringify(activities));
-
-		let parseAct = JSON.parse(localStorage.getItem('activities'));
-
-		retrieveLocal(number);
+		localStorage.setItem(rowId, activityInput);
 	});
 
-	function retrieveLocal(number) {
+	addEvent();
+
+	function addEvent() {
 		// get value property from activities list in local storage
 
-		var actList = JSON.parse(localStorage.getItem('activities'));
+		var actList = '';
 
-		var valInput = actList[number].Value;
+		// get Value property from object
+
+		// var valInput = actList[number].Value;
 
 		// put the value into the textarea where the onclick came from
+		$('textarea').each(function(i, item) {
+			console.log(i);
 
-		$('#textarea-' + number).text(valInput);
+			actList = localStorage.getItem('textarea-' + i);
+			console.log(actList);
 
-		console.log({ actList, valInput, number });
+			$('#textarea-' + i).val(actList);
+		});
+
+		// console.log({ actList, valInput, number });
 	}
 });
