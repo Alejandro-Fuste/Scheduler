@@ -1,28 +1,75 @@
-# Scheduler
 
-Homework #5: Third-Party APIs: Work Day Scheduler
+# Scheduler [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-The purpose of this homework is to create a basic calendar application that allows 
-the user to input and save events for the hours of a standard business day. The will 
-work in the browser and will dynamically generate its contents.
 
-Requirements-
+## Description 
 
-1) Current Day and Date displayed at the top of planner
-2) Timeblocks for standard business hours 
-3) Timeblocks are colored to indicate whether the event
-   is in past, present, or future. 
-4) Able to enter events in each timeblock
-5) The event is saved into local storage when the save 
-   button is clicked. 
-6) The event stays in timeblock when page is refreshed 
+The project creates a basic calendar application that allows a user 
+to input and save events for the hours of a standard business day. 
+The app will work in the browser and will dynamically generate its contents.
+The app uses HTML, CSS, Javascript, Web API, and Third-Party APIs. Click on this link to view the deployed site.
 
 ## User Story
 
-=========
+```
 
-AS AN employee with a busy schedule <br>
-I WANT to add important events to a daily planner <br>
-SO THAT I can manage my time effectively <br>
+AS A employee with a busy schedule
 
-=========
+I WANT to add important events to a daily planner
+
+SO THAT I can manage my time effectively
+
+```
+
+## Table of Contents
+
+* [Installation](#installation)
+
+* [Usage](#usage)
+
+* [License](#license)
+
+* [Contributing](#contributing)
+
+* [Tests](#tests)
+
+* [Questions](#questions)
+
+## Installation
+
+To install necessary dependencies, run the following command:
+
+```
+
+npm i
+
+```
+
+## Usage
+
+App uses HTML, CSS, Javascript, Web API, and Third-Party APIs.
+
+## License
+
+This project is licensed under the MIT license.
+
+## Contributing
+
+Contributions are welcome. 
+
+## Tests 
+
+To run tests, run the following command:
+
+```
+
+npm test
+
+```
+
+## Questions
+
+<img src="https://avatars2.githubusercontent.com/u/48495840?v=4" alt="avatar" style="border-radius: 16px" width="60"/>
+
+If you have any questions about the repo, open an issue or contact [Alejandro Fuste](https://github.com/Alejandro-Fuste) directly through GitHub.
+
