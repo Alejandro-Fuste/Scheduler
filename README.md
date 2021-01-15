@@ -7,7 +7,7 @@
 The project creates a basic calendar application that allows a user 
 to input and save events for the hours of a standard business day. 
 The app will work in the browser and will dynamically generate its contents.
-The app uses <strong>HTML</strong>, <strong>CSS</strong>, <strong>Javascript</strong>, <strong>jQuery</strong> and the <strong>Web API</strong> and <strong>Third-Party APIs</strong>. Click on this link to view the deployed site.
+The app uses <strong>HTML</strong>, <strong>CSS</strong>, <strong>Javascript</strong>, <strong>jQuery</strong> and the <strong>Web API</strong> and <strong>Third-Party APIs</strong>. Click on this [link](https://alejandro-fuste.github.io/Scheduler/) to view the deployed site.
 
 ## User Story
 
